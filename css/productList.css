@@ -7,7 +7,7 @@
 }
 .product-list-title{
     font-size: 3rem;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
 
 }
 .price-filter-label-min{
@@ -18,7 +18,8 @@
     flex-basis: 20%;
     align-self: flex-start;
     position: sticky;
-    top: 80px;
+    top: 50px;
+    /* bottom: 40px; */
 }
 .categorylist a{
     padding: 0.7rem 1.5rem;
@@ -35,7 +36,7 @@
     font-weight: bold;
 }
 .sidebar-title{
-    margin: 1rem 0;
+    margin: 0.8rem 0;
 }
 .clearFilter{
     margin-top: 1rem;

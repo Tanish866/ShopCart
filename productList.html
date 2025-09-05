@@ -38,12 +38,8 @@
                             <input type="text" placeholder="Search by name" class="form-control">
                         </div>
                         <div class="sidebar-title fw-bold">Categories</div>
-                        <div class="categorylist">
-                            <a href="#" class="d-flex text-decoration-none">Electronics</a>
-                            <a href="#" class="d-flex text-decoration-none">Kitchen Ware</a>
-                            <a href="#" class="d-flex text-decoration-none">Men's Outfit</a>
-                            <a href="#" class="d-flex text-decoration-none">Sports</a>
-                            <a href="#" class="d-flex text-decoration-none">Gaming</a>
+                        <div class="categorylist" id="categorylist">
+                            <!-- done by js -->
                         </div>
                         <div class="sidebar-title">Filter by price</div>
                         <div class="price-filter">
@@ -51,21 +47,21 @@
                                 <div class="form-group">
                                     <select name="minPrice" class="form-select" id="minPrice">
                                         <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="500">500</option>
                                         <option value="1000">1000</option>
-                                        <option value="5000">5000</option>
-                                        <option value="10000">10000</option>
-                                        <option value="50000">50000</option>
-                                        <option value="100000">100000</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <select name="maxPrice" class="form-select" id="maxPrice">
                                         <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="500">500</option>
                                         <option value="1000">1000</option>
-                                        <option value="5000">5000</option>
-                                        <option value="10000">10000</option>
-                                        <option value="50000">50000</option>
-                                        <option value="100000">100000</option>
                                     </select>
                                 </div>
                             </div>
@@ -74,6 +70,7 @@
                                 <div class="price-filter-label-max">Max Price</div>
                             </div>
                         </div>
+                        <button class="btn btn-warning searchFilter" id="search">Search</button>
                         <button class="btn btn-danger clearFilter" id="clear">Clear Filter</button>
                     </div>
                     <div class="product-list-box" id="product-list-box">
