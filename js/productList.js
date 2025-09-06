@@ -23,11 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function populateProduct(flag, customProducts){
         let products;
-        const queryParams = new URLSearchParams(window.location.search);
-        const queryParamObject = Object.fromEntries(queryParams.entries());
+        const queryParams = getQueryParams();
         if(flag == false){
-            if(queryParamObject[`category`]){
-                products = await fetchProductsByCategory(queryParamObject[`category`]);
+            if(queryParams[`category`]){
+                products = await fetchProductsByCategory(queryParams[`category`]);
             }
             else{
                 products = await fetchProduct();
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const productList = document.getElementById("product-list-box");
         products.forEach(element => {
             const productLink = document.createElement("a");
-            productLink.href = "productDetails.html";
+            productLink.href = `productDetails.html?id=${element.id}`;
             productLink.classList.add("product-item", "text-decoration-none", "d-inline-block", "text-center");
             productLink.target = "blank";
 
@@ -80,9 +79,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             categoryList.appendChild(categoryLink);
         });
     }
-    populateProduct(false);
-    populateCategories();
 
+    async function downloadandPopulateProduct(){
+        Promise.all([populateProduct(false), populateCategories()])
+        .then(() => {
+            removeLoader();
+        });
+    }
+    downloadandPopulateProduct();
     const filterSearch = document.getElementById("search");
     filterSearch.addEventListener("click", async () => {
         const productList = document.getElementById("product-list-box");
@@ -101,5 +105,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.reload();
     });
 });
-
 

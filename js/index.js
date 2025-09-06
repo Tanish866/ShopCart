@@ -8,6 +8,10 @@ async function fetchCategories(){
 async function populateCategories(){
     const categories = await fetchCategories();
     const categoryList = document.getElementById("category-list");
+    const loaderBackdrop = document.getElementById("loader-backdrop");
+    if(loaderBackdrop){
+        loaderBackdrop.style.display = 'none';
+    }
     categories.forEach(category => {
         const categoryHolder = document.createElement("div");
         const categoryLink = document.createElement("a");
